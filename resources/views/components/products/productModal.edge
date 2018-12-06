@@ -10,35 +10,35 @@
             <div class="modal-body">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">ID</span>
-                    <span type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1">ID212</span>
+                    <span type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1">{{product.id}}</span>
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Nombre</span>
-                    <input type="text" class="form-control" placeholder="Nombre del Producto" aria-describedby="basic-addon1">
+                    <input value="{{product.name}}" type="text" class="form-control" placeholder="Nombre del Producto" aria-describedby="basic-addon1">
                 </div>
                 <br>
 
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Descripción</span>
-                    <input type="text" class="form-control" placeholder="Descripción" aria-describedby="basic-addon1">
+                    <input value="{{product.description}}" type="text" class="form-control" placeholder="Descripción" aria-describedby="basic-addon1">
                 </div>
                 <br>
 
                 <div class="input-group">
                    <span class="input-group-addon" id="basic-addon1">En Existencia</span>
-                   <input type="text" class="form-control" placeholder="En Existencia" aria-describedby="basic-addon1">
+                   <input value="{{product.inStock}}" type="text" class="form-control" placeholder="En Existencia" aria-describedby="basic-addon1">
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Precio de Venta</span>
-                    <input type="text" class="form-control" placeholder="Precio de Venta" aria-describedby="basic-addon1">
+                    <input value="{{product.salePrice}}" type="text" class="form-control" placeholder="Precio de Venta" aria-describedby="basic-addon1">
                     <span class="input-group-addon">$</span>
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Precio de Compra</span>
-                    <input type="text" class="form-control" placeholder="Precio de Compra" aria-describedby="basic-addon1">
+                    <input value="{{product.purchasePrice}}" type="text" class="form-control" placeholder="Precio de Compra" aria-describedby="basic-addon1">
                     <span class="input-group-addon">$</span>
                 </div>
             </div>

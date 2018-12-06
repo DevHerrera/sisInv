@@ -10,3 +10,5 @@ tmp
 
 # The development sqlite file
 database/development.sqlite
+*.sqlite
+yarn.lock
