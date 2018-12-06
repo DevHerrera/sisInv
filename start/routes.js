@@ -18,4 +18,6 @@ const Route = use('Route')
 
 Route.on('/').render('master')
 
-Route.get('/inventory/:inventoryId/', 'InventoryController.index')
+Route.get('/inventory/:inventoryId/', 'InventoryController.index').as('inventory')
+Route.get('/inventory/:inventoryId/products/:productId/', 'ProductController.show')
+Route.put('/inventory/:inventoryId/products/:productId/', 'ProductController.update')
