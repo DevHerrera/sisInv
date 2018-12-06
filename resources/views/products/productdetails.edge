@@ -1,0 +1,46 @@
+@layout('master')
+@section('products.productdetails')
+    <div class="panel panel-default">
+        <div class="panel-heading">Editar producto {{ product.name }}</div>
+        <div class="panel-body">
+        <form action="/inventory/1/products/{{ product.id }}?_method=PUT" method="POST">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">ID</span>
+                    <span type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1">{{ product.id }}</span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre del Producto" value="{{ product.name }}" aria-describedby="basic-addon1">
+                    {{ elIf('<span>$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
+
+                </div>
+                <br>
+            
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Descripción</span>
+                    <input type="text" class="form-control" name="description" placeholder="Descripción" value="{{ product.description }}" aria-describedby="basic-addon1">
+                </div>
+                <br>
+            
+                <div class="input-group">
+                   <span class="input-group-addon" id="basic-addon1">En Existencia</span>
+                   <input type="text" class="form-control" name="inStock" placeholder="En Existencia" value="{{ product.inStock }}"aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Precio de Venta</span>
+                    <input type="text" class="form-control" name="salePrice" placeholder="Precio de Venta" value="{{ product.salePrice }}"aria-describedby="basic-addon1">
+                    <span class="input-group-addon">$</span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Precio de Compra</span>
+                    <input type="text" class="form-control" name="purchasePrice" placeholder="Precio de Compra" value="{{ product.purchasePrice }}" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">$</span>
+                </div>
+                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Guardar</button>
+            </form>
+        </div>
+    </div>
+@endsection
