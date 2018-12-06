@@ -26,7 +26,8 @@ class ProductController {
         product.inStock = request.input('inStock')
         product.salePrice = request.input('salePrice')
         product.purchasePrice = request.input('purchasePrice')
-        await product.save()
+        product.inventory_id = params.inventoryId
+        await product.save()        
         return response.route('inventory', { inventoryId: 1 })
     }
 }

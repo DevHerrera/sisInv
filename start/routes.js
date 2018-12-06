@@ -20,4 +20,4 @@ Route.on('/').render('master')
 
 Route.get('/inventory/:inventoryId/', 'InventoryController.index').as('inventory')
 Route.get('/inventory/:inventoryId/products/:productId/', 'ProductController.show')
-Route.put('/inventory/:inventoryId/products/:productId/', 'ProductController.update')
+Route.post('/inventory/:inventoryId/products/:productId/', 'ProductController.update')

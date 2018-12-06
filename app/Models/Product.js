@@ -10,8 +10,7 @@ class Product extends Model {
             description: 'required',
             inStock: 'required',
             salePrice: 'required',
-            purchasePrice: 'required',
-            inventory_id: 'required'
+            purchasePrice: 'required'
         }
         return rules
     }    
