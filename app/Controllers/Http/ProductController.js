@@ -7,7 +7,7 @@ const { validate } = use('Validator')
 
 class ProductController {
     async show ({ request, params, view }) {
-        const inventory = await Inventory.findOrFail(params.inventoryId)
+        const inventory = await Inventory.findOrFail(1)
         const productData = await inventory.products().where('id', params.productId).fetch()
         const product = productData.toJSON()[0]
         return view.render('products.productdetails', { product: product })
@@ -37,7 +37,7 @@ class ProductController {
         product.inStock = request.input('inStock')
         product.salePrice = request.input('salePrice')
         product.purchasePrice = request.input('purchasePrice')
-        product.inventory_id = params.inventoryId
+        product.inventory_id = 1
         await product.save()
         return response.route('inventory', { inventoryId: 1 })
     }
@@ -56,7 +56,7 @@ class ProductController {
         product.inStock = request.input('inStock')
         product.salePrice = request.input('salePrice')
         product.purchasePrice = request.input('purchasePrice')
-        product.inventory_id = params.inventoryId
+        product.inventory_id = 1
         await product.save()        
         return response.route('inventory', { inventoryId: 1 })
     }

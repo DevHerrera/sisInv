@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SisInv</title>
+    {{ style ('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}
+    {{ style ('style') }}
+    {{ script('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}
+    {{ script ('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}
+    {{ script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js') }}
+</head>
+<body>
+    <br>
+    <div class="container col-sm-6 col-centered">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title"><strong>Iniciar Sesión </strong></h3></div>
+                <div class="panel-body">
+                    <form action="/" method="POST" role="form">
+                        @if(flashMessage('error'))
+                            @component('components.alert', { color: 'danger' })
+                                <p class="text-sm">{{ flashMessage('error') }}</p>
+                            @endcomponent
+                        @endif
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre de Usuario</label>
+                            <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Contraseña <a href="#">(forgot password)</a></label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Acceder</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
