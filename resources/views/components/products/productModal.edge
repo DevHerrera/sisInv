@@ -1,51 +1,110 @@
 <div class="modal" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title">Editar Producto</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">ID</span>
-                    <span type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1">ID212</span>
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Nombre</span>
-                    <input type="text" class="form-control" placeholder="Nombre del Producto" aria-describedby="basic-addon1">
-                </div>
-                <br>
-
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Descripción</span>
-                    <input type="text" class="form-control" placeholder="Descripción" aria-describedby="basic-addon1">
-                </div>
-                <br>
-
-                <div class="input-group">
-                   <span class="input-group-addon" id="basic-addon1">En Existencia</span>
-                   <input type="text" class="form-control" placeholder="En Existencia" aria-describedby="basic-addon1">
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Precio de Venta</span>
-                    <input type="text" class="form-control" placeholder="Precio de Venta" aria-describedby="basic-addon1">
-                    <span class="input-group-addon">$</span>
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Precio de Compra</span>
-                    <input type="text" class="form-control" placeholder="Precio de Compra" aria-describedby="basic-addon1">
-                    <span class="input-group-addon">$</span>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Editar Producto</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">ID</span>
+            <span
+              type="text"
+              class="form-control"
+              placeholder="ID"
+              aria-describedby="basic-addon1"
+              >{{ product.id }}</span
+            >
           </div>
-        </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Nombre</span>
+            <input
+              value="{{product.name}}"
+              name="name"
+              type="text"
+              class="form-control"
+              placeholder="Nombre del Producto"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <br />
+
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Descripción</span>
+            <input
+              value="{{product.description}}"
+              name="description"
+              type="text"
+              class="form-control"
+              placeholder="Descripción"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <br />
+
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"
+              >En Existencia</span
+            >
+            <input
+              value="{{product.inStock}}"
+              name="inStock"
+              type="text"
+              class="form-control"
+              placeholder="En Existencia"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"
+              >Precio de Venta</span
+            >
+            <input
+              value="{{product.salePrice}}"
+              name="salePrice"
+              type="text"
+              class="form-control"
+              placeholder="Precio de Venta"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-addon">$</span>
+          </div>
+          <br />
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"
+              >Precio de Compra</span
+            >
+            <input
+              value="{{product.purchasePrice}}"
+              name="purchasePrice"
+              type="text"
+              class="form-control"
+              placeholder="Precio de Compra"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-addon">$</span>
+          </div>
+          <div class="input-group">
+            <br />
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
