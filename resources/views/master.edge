@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style ('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}
+    {{ style ('style') }}
+    {{ script('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}
+    {{ script ('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}
+    {{ script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js') }}
+    <title>sisInv</title>
+</head>
+<body>
+    @!component('components.navbar')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">            
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Acciones</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="sidebar-nav">
+                            <li><a href="/inventory">Ver Inventario</a></li>
+                            <li><a href="/sales">Ver Ventas</a></li>
+                            <li><a href="/purchases">Ver Compras</a></li>
+                            <li><a href="/clients">Ver Clientes</a></li>
+    
+                            <hr>
+                            <li><a href="/products/new">Nuevo Producto</a></li>
+                            <li><a href="/sales/new">Nueva Venta</a></li>
+                            <li><a href="/clients/new">Nuevo Cliente</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                {{--  Inventario  --}}
+                @!section('inventory')
+            </div>
+        </div>
+    </div>
+</body>
+</html>

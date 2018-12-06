@@ -1,0 +1,33 @@
+@layout('master')
+@section('inventory')
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{ inventory.name }}</div>
+    <div class="panel-body">
+        <p> {{ inventory.description }}</p>
+    </div>
+    <hr>
+    <!-- Table -->
+    <h3 style="margin-left:10px;">Productos <i class="glyphicon glyphicon-shopping-cart"></i></h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio de Venta</th>
+                <th scope="col">Precio de Compra</th>
+                <th scope="col">En Existencia</th>
+                <th scope="col">Acciones</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @each(product in products)
+            @include('components.inventory.tableRow')
+            @endeach
+        </tbody>
+    </table>
+</div>
+<button type="button" style="margin-left:5px;margin-bottom:10px; "class="btn btn-primary pull-right">Agregar Producto</button>
+@endsection
