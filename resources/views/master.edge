@@ -28,7 +28,7 @@
                             <li><a href="/clients">Ver Clientes</a></li>
     
                             <hr>
-                            <li><a href="/products/new">Nuevo Producto</a></li>
+                            <li><a href="/inventory/1/products/create">Nuevo Producto</a></li>
                             <li><a href="/sales/new">Nueva Venta</a></li>
                             <li><a href="/clients/new">Nuevo Cliente</a></li>
                         </ul>
@@ -38,9 +38,10 @@
             <div class="col-sm-10">
                 {{--  Inventario  --}}
                 @!section('inventory')
-                {{--  Producto  --}}
+                {{--  Producto Details --}}
                 @!section('products.productdetails')
-
+                {{--  Producto Nuevo --}}
+                @!section('products.newproduct')
             </div>
         </div>
     </div>

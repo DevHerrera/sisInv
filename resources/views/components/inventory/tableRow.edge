@@ -8,9 +8,10 @@
     <td style="min-width: 180px;">
         <div class="row">
             <div class="col-sm-12">
-                    @include('components.products.productModal')
-            <button type="button" data-toggle="modal" data-target="#myModal{{product.id}}" class="btn btn-warning">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                @include('components.products.productModal')
+                <button type="button" data-toggle="modal" data-target="#myModal{{product.id}}" class="btn btn-warning">Editar</button>
+                @include('components.products.deleteModal')                
+                <button type="button" data-toggle="modal" data-target="#myModalDelete{{product.id}}" class="btn btn-danger">Eliminar</button>
             </div>
         </div>
     </td>

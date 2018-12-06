@@ -1,0 +1,43 @@
+@layout('master')
+@section('products.newproduct')
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Agregar nuevo producto</h3>
+        </div>
+        <div class="panel-body">
+        <form action="/inventory/1/products/" method="POST">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre del Producto" value="" aria-describedby="basic-addon1">
+                    {{ elIf('<span>$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
+
+                </div>
+                <br>
+            
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Descripción</span>
+                    <input type="text" class="form-control" name="description" placeholder="Descripción" value="" aria-describedby="basic-addon1">
+                </div>
+                <br>
+            
+                <div class="input-group">
+                   <span class="input-group-addon" id="basic-addon1">En Existencia</span>
+                   <input type="text" class="form-control" name="inStock" placeholder="En Existencia" value=""aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Precio de Venta</span>
+                    <input type="text" class="form-control" name="salePrice" placeholder="Precio de Venta" value="" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">$</span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Precio de Compra</span>
+                    <input type="text" class="form-control" name="purchasePrice" placeholder="Precio de Compra" value="" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">$</span>
+                </div>
+                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Guardar Producto</button>
+            </form>
+        </div>
+    </div>
+@endsection

@@ -3,7 +3,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Editar producto {{ product.name }}</div>
         <div class="panel-body">
-        <form action="/inventory/1/products/{{ product.id }}?_method=PUT" method="POST">
+        <form action="/inventory/1/products/{{ product.id }}" method="POST">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">ID</span>
                     <span type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1">{{ product.id }}</span>
@@ -39,7 +39,7 @@
                     <input type="text" class="form-control" name="purchasePrice" placeholder="Precio de Compra" value="{{ product.purchasePrice }}" aria-describedby="basic-addon1">
                     <span class="input-group-addon">$</span>
                 </div>
-                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Guardar</button>
+                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Actualizar</button>
             </form>
         </div>
     </div>

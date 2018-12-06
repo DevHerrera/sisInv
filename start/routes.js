@@ -19,5 +19,19 @@ const Route = use('Route')
 Route.on('/').render('master')
 
 Route.get('/inventory/:inventoryId/', 'InventoryController.index').as('inventory')
-Route.get('/inventory/:inventoryId/products/:productId/', 'ProductController.show')
-Route.post('/inventory/:inventoryId/products/:productId/', 'ProductController.update')
+
+// Product Create
+
+/*
+ |----------------------------------
+ | Product Controller Routes
+ |----------------------------------
+ */
+
+Route.group(() => {
+    Route.get('/products/create', 'ProductController.create')
+    Route.get('/products/:productId/delete', 'ProductController.delete')
+    Route.get('/products/:productId', 'ProductController.show')
+    Route.post('/products/:productId', 'ProductController.update')
+    Route.post('/products/', 'ProductController.store')
+}).prefix('/inventory/:inventoryId')
