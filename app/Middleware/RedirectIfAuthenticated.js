@@ -7,13 +7,12 @@ class RedirectIfAuthenticated {
    * @param {Function} next
    */
   async handle ({ auth, request, response }, next) {
-    
     try {
       await auth.check()
       return response.redirect('/inventory')
     } catch (e) {}
     await next()
-    
   }
 }
+
 module.exports = RedirectIfAuthenticated

@@ -4,16 +4,16 @@
 const Model = use('Model')
 
 class Product extends Model {
-    static getValidationRules() {
-        const rules = {
-            name: 'required',
-            description: 'required',
-            inStock: 'required',
-            salePrice: 'required',
-            purchasePrice: 'required'
-        }
-        return rules
-    }    
+  static getValidationRules () {
+    const rules = {
+      name: 'required',
+      description: 'required',
+      inStock: 'required',
+      salePrice: 'required',
+      purchasePrice: 'required'
+    }
+    return rules
+  }
 }
 
 module.exports = Product
