@@ -24,6 +24,12 @@ Route.get('/sales', 'SaleController.home').middleware('auth')
 Route.get('/sales/create', 'SaleController.create').middleware('auth')
 Route.post('/sales/create', 'SaleController.store').middleware('auth')
 
+Route.get('/clients', 'ClientController.index').middleware('auth')
+Route.get('/clients/create', 'ClientController.create').middleware('auth')
+Route.post('/clients/', 'ClientController.store').middleware('auth')
+Route.post('/clients/:id', 'ClientController.update').middleware('auth')
+
+
 Route.get('/inventory', 'InventoryController.index').as('inventory').middleware('auth')
 
 Route.get('/logout', 'SessionController.delete').middleware('auth')

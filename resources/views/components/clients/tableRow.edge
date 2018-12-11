@@ -1,0 +1,16 @@
+<tr>
+        <th scope="row">{{ client.id }}</th>
+        <td>{{ client.name }} {{ client.lastname }}</td>
+        <td>{{ client.address }}</td>
+        <td>{{ client.company }}</td>
+        <td style="min-width: 180px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    @include('components.clients.clientModal')
+                    <button type="button" data-toggle="modal" data-target="#myModal{{client.id}}" class="btn btn-success">Ver Cliente</button>
+                    <button type="button" data-toggle="modal" data-target="" class="btn btn-primary">Ver Compras</button>
+                </div>
+            </div>
+        </td>
+</tr>
+    

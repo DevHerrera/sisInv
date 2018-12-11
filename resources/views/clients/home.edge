@@ -1,0 +1,28 @@
+@layout('master')
+@section('clients')
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Registro de Clientes</div>
+            <div class="panel-body">
+                <h3 style="margin-left:10px;">Clientes <i class="glyphicon glyphicon-user"></i></h3>
+                <!-- Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#Código</th>
+                            <th scope="col">Nombre y Apellido</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Tabacalera</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @each(client in data)
+                            @include('components.clients.tableRow')
+                        @endeach
+                    </tbody>
+                </table>
+            <a type="button" href="/clients/create" style="margin-left:5px;margin-bottom:10px; "class="btn btn-primary pull-right">Nuevo Cliente</a>
+        </div>
+    </div>
+@endsection

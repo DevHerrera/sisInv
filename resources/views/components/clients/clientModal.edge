@@ -1,0 +1,96 @@
+<div class="modal" id="myModal{{client.id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Editar Cliente</h3>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/clients/{{client.id}}" method="POST">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Código</span>
+                  <span
+                    type="text"
+                    class="form-control"
+                    placeholder="ID"
+                    aria-describedby="basic-addon1"
+                    >{{ client.id }}</span
+                  >
+                </div>
+                <br />
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                  <input
+                    value="{{client.name}}"
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre del Cliente"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <br />
+      
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Apellido</span>
+                  <input
+                    value="{{client.lastname}}"
+                    name="lastname"
+                    type="text"
+                    class="form-control"
+                    placeholder="Apellido"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <br />
+      
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"
+                    >Dirección</span
+                  >
+                  <input
+                    value="{{client.address}}"
+                    name="address"
+                    type="text"
+                    class="form-control"
+                    placeholder="Dirección"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <br />
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1"
+                    >Tabacalera</span
+                  >
+                  <input
+                    value="{{client.company}}"
+                    name="company"
+                    type="text"
+                    class="form-control"
+                    placeholder="Tabacalera"
+                    aria-describedby="basic-addon1"
+                  />
+                  <span class="input-group-addon">$</span>
+                </div>
+                <div class="input-group">
+                  <br />
+                  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      

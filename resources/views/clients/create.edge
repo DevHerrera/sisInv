@@ -1,0 +1,38 @@
+@layout('master')
+@section('clients.newclient')
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Registrar nuevo cliente</h3>
+        </div>
+        <div class="panel-body">
+        <form action="/clients/" method="POST">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre del Cliente" value="" aria-describedby="basic-addon1">
+                    {{ elIf('<span>$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
+
+                </div>
+                <br>
+            
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Apellido</span>
+                    <input type="text" class="form-control" name="lastname" placeholder="Apellido del Cliente" value="" aria-describedby="basic-addon1">
+                </div>
+                <br>
+            
+                <div class="input-group">
+                   <span class="input-group-addon" id="basic-addon1">Dirreción</span>
+                   <input type="text" class="form-control" name="address" placeholder="Dirreción" value=""aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Tabacalera</span>
+                    <input type="text" class="form-control" name="company" placeholder="Tabacalera" value="" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">$</span>
+                </div>
+                <br>
+                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Registrar Cliente </button>
+            </form>
+        </div>
+    </div>
+@endsection

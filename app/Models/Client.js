@@ -7,10 +7,11 @@ class Client extends Model {
     static getValidationRules () {
         const rules = {
             name: 'required',
-            lasntname: 'required',
+            lastname: 'required',
             address: 'required',
             company: 'required'
         }
+        return rules
     }
     compras () {
         return this.hasMany('App/Model/Sale')
