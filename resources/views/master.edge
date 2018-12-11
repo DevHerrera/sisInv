@@ -22,13 +22,13 @@
                     </div>
                     <div class="panel-body">
                         <ul class="sidebar-nav">
-                            <li><a href="/inventory/1">Ver Inventario</a></li>
+                            <li><a href="/inventory/">Ver Inventario</a></li>
                             <li><a href="/sales">Ver Ventas</a></li>
                             <li><a href="/purchases">Ver Compras</a></li>
                             <li><a href="/clients">Ver Clientes</a></li>
     
                             <hr>
-                            <li><a href="/inventory/1/products/create">Nuevo Producto</a></li>
+                            <li><a href="/inventory/products/create">Nuevo Producto</a></li>
                             <li><a href="/sales/new">Nueva Venta</a></li>
                             <li><a href="/clients/new">Nuevo Cliente</a></li>
                         </ul>
@@ -42,6 +42,11 @@
                 @!section('products.productdetails')
                 {{--  Producto Nuevo --}}
                 @!section('products.newproduct')
+                {{--  Ventas --}}
+                @!section('sales')
+                {{--  Nueva venta  --}}
+                @!section('sales.create')
+
             </div>
         </div>
     </div>

@@ -1,0 +1,28 @@
+@layout('master')
+@section('sales')
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Registro de Ventas</div>
+            <div class="panel-body">
+                <h3 style="margin-left:10px;">Ventas <i class="glyphicon glyphicon-list-alt"></i></h3>
+                <!-- Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#Código</th>
+                            <th scope="col">Vendedor</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @each(sale in data)
+                            @include('components.sales.tableRow')
+                        @endeach
+                    </tbody>
+                </table>
+            <a type="button" href="/sales/create" style="margin-left:5px;margin-bottom:10px; "class="btn btn-primary pull-right">Nueva Venta</a>
+        </div>
+    </div>
+@endsection

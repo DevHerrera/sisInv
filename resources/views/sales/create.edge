@@ -1,0 +1,57 @@
+@layout('master')
+@section('sales.create')
+<div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Nueva de Ventas</div>
+            <div class="panel-body">
+                <h3 style="margin-left:10px;">Crear nueva Venta <i class="glyphicon glyphicon-list-alt"></i></h3>
+                <form action="/sales/create/" method="POST">
+                    <div class="input-group">       
+                        <span class="input-group-addon" id="basic-addon1">Usuario</span>
+                        <span
+                            name="username"
+                            type="text"
+                            class="form-control"
+                            placeholder="username"
+                            aria-describedby="basic-addon1"
+                            >{{ auth.user.username }}</span>
+                    </div>
+                        <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Cliente</span>
+                        <input
+                            name="name"
+                            type="text"
+                            class="form-control"
+                            placeholder="Client"
+                            aria-describedby="basic-addon1"
+                            />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Productos</span>
+                            <input
+                            name="productos"
+                            type="text"
+                            class="form-control"
+                            placeholder="Nombre del Producto"
+                            aria-describedby="basic-addon1"
+                            />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Total</span>
+                            <input
+                            name="total"
+                            type="text"
+                            class="form-control"
+                            placeholder="Total"
+                            aria-describedby="basic-addon1"
+                            />
+                        </div>
+                    </div>
+                </form>
+                <a type="button" href="#" style="margin-left:5px;margin-bottom:10px; "class="btn btn-primary pull-right">Nueva Venta</a>
+        </div>
+</div>
+
+
+@endsection

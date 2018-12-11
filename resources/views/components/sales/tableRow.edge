@@ -1,0 +1,19 @@
+<tr>
+        <th scope="row">{{ sale.id }}</th>
+        <td>devherrera</td>
+        <td>{{ sale.name }} {{ sale.lastname }}</td>
+        <td>{{ sale.total }}</td>
+        <td style="min-width: 180px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    @include('components.sales.saleModal')
+                    <button type="button" data-toggle="modal" data-target="#myModal{{sale.id}}" class="btn btn-success">Ver Venta</button>
+                    <button type="button" data-toggle="modal" data-target="" class="btn btn-primary">Ver Detalles</button>
+                    <button type="button" data-toggle="modal" data-target="" class="btn btn-primary">Ver Cliente</button>
+
+                </div>
+            </div>
+        </td>
+        
+    </tr>
+    

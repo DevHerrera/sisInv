@@ -19,6 +19,11 @@ const Route = use('Route')
 Route.get('/', 'SessionController.create').middleware('guest')
 Route.post('/', 'SessionController.store').middleware('guest')
 
+
+Route.get('/sales', 'SaleController.home').middleware('auth')
+Route.get('/sales/create', 'SaleController.create').middleware('auth')
+Route.post('/sales/create', 'SaleController.store').middleware('auth')
+
 Route.get('/inventory', 'InventoryController.index').as('inventory').middleware('auth')
 
 Route.get('/logout', 'SessionController.delete').middleware('auth')
