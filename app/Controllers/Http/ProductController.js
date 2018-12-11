@@ -3,30 +3,29 @@
 const Product = use('App/Models/Product')
 const Inventory = use('App/Models/Inventory')
 const Validator = use('App/Helpers/Validator')
-const { validate } = use('Validator')
 
 class ProductController {
-    async show ({ request, params, view }) {
+    async show ({ params, view }) {
         const inventory = await Inventory.findOrFail(1)
         const productData = await inventory.products().where('id', params.productId).fetch()
         const product = productData.toJSON()[0]
         return view.render('products.productdetails', { product: product })
     }
 
-    create ({ request, view }) {
+    create ({ view }) {
         return view.render('products.newproduct')
     }
 
     saludar ({params}) {
         console.log(params.nombre)
     }
-    async delete ({ request, params, response }) {
+    async delete ({ params, response }) {
         const product = await Product.find(params.productId)
         await product.delete()
         return response.route('inventory', { inventoryId: 1 })        
     }
 
-    async store ({ request, params, response, view }) {
+    async store ({ request, response }) {
         await Validator.validateData(request.all(), Product.getValidationRules())
         if (!Validator.isValidated()) {
             return response.send(Validator.getValidationMessage())
@@ -42,7 +41,7 @@ class ProductController {
         return response.route('inventory', { inventoryId: 1 })
     }
 
-    async update ({ request, params, response, view }) {
+    async update ({ request, params, response }) {
         // Validar Campos
         await Validator.validateData(request.all(), Product.getValidationRules())
         // If Validation fails redirect to inventory

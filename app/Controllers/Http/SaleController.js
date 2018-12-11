@@ -25,7 +25,7 @@ class SaleController {
         return view.render('sales.home', { sales: sales })
     }
 
-    async home( { request, auth, view, response }) {
+    async home( { view }) {
         const data = await Database.table('sales')
                     .select('sales.id', 'users.username', 'clients.name', 'clients.lastname', 'sales.total')
                     .innerJoin('clients', 'client_id', 'clients.id')
