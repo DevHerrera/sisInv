@@ -13,6 +13,13 @@ class Client extends Model {
     }
     return rules
   }
+
+  async getClients () {
+    const clientData = await this.all()
+    const clients = clientData.toJSON()
+    return clients
+  }
+
   compras () {
     return this.hasMany('App/Model/Sale')
   }

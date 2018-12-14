@@ -1,0 +1,28 @@
+@layout('master')
+@section('purchases')
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Registro de Compras</div>
+            <div class="panel-body">
+                <h3 style="margin-left:10px;">Compras <i class="glyphicon glyphicon-list-alt"></i></h3>
+                <!-- Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#Código</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Proovedor</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @each(purchase in data)
+                            @include('components.purchases.tableRow')
+                        @endeach
+                    </tbody>
+                </table>
+            <a type="button" href="/purchases/create" style="margin-left:5px;margin-bottom:10px; "class="btn btn-primary pull-right">Nueva Compra</a>
+        </div>
+    </div>
+@endsection

@@ -17,7 +17,8 @@ class SaleController {
     const sale = new Sale()
     sale.total = request.input('total')
     sale.client_id = request.input('client_id')
-    sale.user_id = auth.id
+    sale.user_id = auth.user.id
+    console.log('About to save SALE')
     await sale.save()
     const sales = await Sale.all()
     return view.render('sales.home', { sales: sales })

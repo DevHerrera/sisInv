@@ -1,11 +1,11 @@
 @layout('master')
-@section('sales.create')
+@section('purchases.create')
 <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Nueva Venta</div>
+        <div class="panel-heading">Nueva Compra</div>
             <div class="panel-body">
-                <h3 style="margin-left:10px;">Crear nueva Venta <i class="glyphicon glyphicon-list-alt"></i></h3>
-                <form action="/sales/create/" method="POST">
+                <h3 style="margin-left:10px;">Crear nueva Compra <i class="glyphicon glyphicon-list-alt"></i></h3>
+                <form action="/purchases/create/" method="POST">
                     <div class="input-group">       
                         <span class="input-group-addon" id="basic-addon1">Usuario</span>
                         <span
@@ -16,24 +16,14 @@
                             aria-describedby="basic-addon1"
                             >{{ auth.user.username }}</span>
                     </div>
-                        <br>
+                    <br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Cliente</span>
-                        <input
-                            name="client_id"
-                            type="text"
-                            class="form-control"
-                            placeholder="Client"
-                            aria-describedby="basic-addon1"
-                            />
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Productos</span>
+                        <span class="input-group-addon" id="basic-addon1">Proveedor</span>
                             <input
-                            name="productos"
+                            name="provider"
                             type="text"
                             class="form-control"
-                            placeholder="Nombre del Producto"
+                            placeholder="Nombre del Proveedor"
                             aria-describedby="basic-addon1"
                             />
                     </div>
@@ -48,11 +38,8 @@
                             />
                         </div>
                     </div>
-                    <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Confirmar Venta</button>
+                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Confirmar Compra</button>
                 </form>
-                
         </div>
 </div>
-
-
 @endsection

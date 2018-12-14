@@ -10,6 +10,11 @@ class ClientController {
     return view.render('clients/home', { data: clients })
   }
 
+  async showClients ({ view }) {
+    const clients = Client.getClients()
+    return view.render('clients/showModal', { data: clients })
+  }
+
   create ({ view }) {
     return view.render('clients/create')
   }
