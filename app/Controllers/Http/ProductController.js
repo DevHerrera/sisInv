@@ -17,12 +17,27 @@ class ProductController {
   }
 
   async delete ({ params, response }) {
-    const product = await Product.find(params.productId)
+    const product = await Product.findOrFail(params.productId)
     await product.delete()
     return response.route('inventory', { inventoryId: 1 })
   }
 
+  async newProduct ({ request, response }) {
+    await Validator.validateData(request.all(), Product.getValidationRules())
+    if (!Validator.isValidated()) {
+      return response.send(Validator.getValidationMessage())
+    }
+    const product = new Product()
+    product.name = request.input('name')
+    product.description = request.input('description')
+    product.inStock = request.input('inStock')
+    product.salePrice = request.input('salePrice')
+    product.purchasePrice = request.input('purchasePrice')
+    await product.save()
+  }
+
   async store ({ request, response }) {
+    console.log('? RLY')
     await Validator.validateData(request.all(), Product.getValidationRules())
     if (!Validator.isValidated()) {
       return response.send(Validator.getValidationMessage())

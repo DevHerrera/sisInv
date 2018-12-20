@@ -1,0 +1,12 @@
+<tr>
+  <td>{{ product.id }}</td>
+  <td>{{ product.name }}</td>
+  <td>{{ product.description }}</td>
+  <td>{{ product.inStock }}</td>
+  @if(isSale)
+  <td id="price{{ product.id }}">{{ product.salePrice }}</td>
+  @else
+  <td id="price{{ product.id }}">{{ product.purchasePrice }}</td>    
+  @endif
+  <td><input type="text" class="input-group" id="input{{product.id}}" value="0" style="width: 100%" id="count{{product.id}}"></td>
+</tr>

@@ -16,29 +16,28 @@
                             aria-describedby="basic-addon1"
                             >{{ auth.user.username }}</span>
                     </div>
-                    <br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Proveedor</span>
-                            <input
-                            name="provider"
-                            type="text"
-                            class="form-control"
-                            placeholder="Nombre del Proveedor"
-                            aria-describedby="basic-addon1"
-                            />
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Total</span>
-                            <input
-                            name="total"
-                            type="text"
-                            class="form-control"
-                            placeholder="Total"
-                            aria-describedby="basic-addon1"
-                            />
+                        <span class="input-group-addon" id="basic-addon1">Productos</span>
+                        <!-- Single button -->
+                        <div class="input-group">
+                          @include('components.products.selectProductsModal')
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal" data-target="#productModal" aria-haspopup="true" aria-expanded="false">
+                            Producto Existente <span class="caret"></span>
+                          </button>
+                          @include('components.products.newProductModal')
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal" data-target="#newProductModal" aria-haspopup="true" aria-expanded="false">
+                              Producto Nuevo <span class="caret"></span>
+                            </button>
                         </div>
                     </div>
-                <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Confirmar Compra</button>
+                    <script type="text/javascript" language="javascript">
+                      $(function() {
+                            $("#selectorId").change(function(){
+                              var clientId = $("#selectorId option:selected").val();
+                              $('#client_id').val(clientId);
+                         });
+                      });
+                    </script>
                 </form>
         </div>
 </div>

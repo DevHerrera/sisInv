@@ -19,26 +19,24 @@ const Route = use('Route')
 Route.get('/', 'SessionController.create').middleware('guest')
 Route.post('/', 'SessionController.store').middleware('guest')
 
-
-Route.get('/sales', 'SaleController.home').middleware('auth')
+Route.get('/sales', 'SaleController.home').middleware('auth').as('sales')
 Route.get('/sales/create', 'SaleController.create').middleware('auth')
 Route.post('/sales/create', 'SaleController.store').middleware('auth')
 
-Route.get('/purchases', 'PurchaseController.home').middleware('auth')
+Route.get('/purchases', 'PurchaseController.home').middleware('auth').as('purchases')
+Route.post('/purchases/', 'PurchaseController.storeNew').middleware('auth')
 Route.get('/purchases/create', 'PurchaseController.create').middleware('auth')
 Route.post('/purchases/create', 'PurchaseController.store').middleware('auth')
 
-Route.get('/clients', 'ClientController.index').middleware('auth')
+Route.get('/clients', 'ClientController.index').middleware('auth').as('clients')
 Route.get('/clients/create', 'ClientController.create').middleware('auth')
 Route.post('/clients/', 'ClientController.store').middleware('auth')
 Route.post('/clients/:id', 'ClientController.update').middleware('auth')
-
+Route.get('/clients/:id', 'ClientController.show').middleware('auth')
 
 Route.get('/inventory', 'InventoryController.index').as('inventory').middleware('auth')
 
 Route.get('/logout', 'SessionController.delete').middleware('auth')
-
-
 /*
  |----------------------------------
  | Product Controller Routes

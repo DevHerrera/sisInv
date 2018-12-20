@@ -16,36 +16,31 @@
                             aria-describedby="basic-addon1"
                             >{{ auth.user.username }}</span>
                     </div>
-                        <br>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Cliente</span>
-                        <input
-                            name="client_id"
-                            type="text"
-                            class="form-control"
-                            placeholder="Client"
-                            aria-describedby="basic-addon1"
-                            />
+                        <select id="selectorId" name="selectorClient" class="form-control" data-show-subtext="true" data-live-search="true">
+                          @each(client in clients)
+                            <option value={{ client.id }} valuedata-subtext="Cliente">{{client.name}} {{client.lastname}}</option>  
+                          @endeach
+                        </select>
+                        <input type='hidden' id="client_id" name="client_id" value=""/>
                     </div>
+                    <script type="text/javascript" language="javascript">
+                      $(function() {
+                            $("#selectorId").change(function(){
+                              var clientId = $("#selectorId option:selected").val();
+                              $('#client_id').val(clientId);
+                         });
+                      });
+                    </script>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Productos</span>
-                            <input
-                            name="productos"
-                            type="text"
-                            class="form-control"
-                            placeholder="Nombre del Producto"
-                            aria-describedby="basic-addon1"
-                            />
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Total</span>
-                            <input
-                            name="total"
-                            type="text"
-                            class="form-control"
-                            placeholder="Total"
-                            aria-describedby="basic-addon1"
-                            />
+                        <!-- Single button -->
+                        <div class="input-group">
+                          @include('components.products.selectProductsModal')
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal" data-target="#productModal" aria-haspopup="true" aria-expanded="false">
+                            Seleccionar Productos <span class="caret"></span>
+                          </button>
                         </div>
                     </div>
                     <button type="submit" style="margin-left:5px; margin-top:10px; margin-bottom:10px; "class="btn btn-success pull-right">Confirmar Venta</button>

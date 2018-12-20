@@ -19,6 +19,10 @@ class ClientController {
     return view.render('clients/create')
   }
 
+  show ({ view }) {
+    return view.render('clients/show')
+  }
+
   async store ({ request, response }) {
     await Validator.validateData(request.all(), Client.getValidationRules())
     if (!Validator.isValidated()) {
@@ -34,7 +38,6 @@ class ClientController {
   }
 
   async update ({ request, params, response }) {
-    console.log(request.all())
     await Validator.validateData(request.all(), Client.getValidationRules())
     console.log(Validator.getValidationMessage())
     if (!Validator.isValidated()) {
@@ -47,6 +50,12 @@ class ClientController {
     client.company = request.input('company')
     await client.save()
     return response.redirect('/clients/')
+  }
+
+  async destroy ({ params, response }) {
+    const client = await Client.findorFail(params.id)
+    await client.delete()
+    return response.route('clients')
   }
 }
 

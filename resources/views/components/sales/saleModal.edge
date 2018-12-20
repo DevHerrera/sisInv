@@ -1,4 +1,4 @@
-<div class="modal" id="myModal{{sale.id}}" tabindex="-1" role="dialog">
+<div class="modal" id="myModal{{sale.total}}{{sale.id}}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -41,7 +41,7 @@
                 <div class="input-group">
                   <span class="input-group-addon" id="basic-addon1">Cliente</span>
                   <input
-                    value="{{ client.name }} {{ client.lastname }}"
+                    value="{{ sale.name }} {{ sale.lastname }}"
                     name="client"
                     type="text"
                     class="form-control"

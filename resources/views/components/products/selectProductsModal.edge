@@ -1,0 +1,105 @@
+<div class="modal" id="productModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Seleccionar Productos</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @if(isSale)
+          <form action="/sales/create/" method="POST">
+        @else
+          <form action="/purchases/create/" method="POST">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Proveedor</span>
+                <input
+                name="provider"
+                type="text"
+                class="form-control"
+                placeholder="Nombre del Proveedor"
+                aria-describedby="basic-addon1"
+                />
+            </div>
+        @endif          
+          <table id = "productsTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>#Código</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Existencia</th>
+                  @if(isSale)
+                    <th>Precio de venta </th>
+                  @else
+                    <th>Precio de compra</th>
+                  @endif
+                  <th id="cantidad">Cantidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                @!each(product in products, include = 'components.products.selectTableRow')
+              </tbody>
+            </table>
+            <input type="hidden" value="" id="rest" name="rest" />
+            <input class="pull-right" style="width: 30%" type="text" readonly="readonly" name="total" id="total" placeholder="0" value="">
+            <span style="margint-left: 10%;" class="label label-primary">Total</span>            
+            <script>
+              $(function() {
+                $("#productsTable").click(function() {
+                  var total = 0.00;
+                  var changes = [];
+                  var rest = 0;
+                  var table = document.getElementById("productsTable");
+                  for (var i = 1, row; row = table.rows[i]; i ++) {
+                    for (var j = 0, col; col = row.cells[j]; j ++) {
+                      if( j == 3 ) {
+                        rest = 0;
+                        rest = parseFloat($(col).text());
+                      }
+                      if ( j == 4 ) {
+                        var price = 0.00;
+                        price += parseFloat($(col).text());
+                      }
+                      
+                      if ( j == 5 ) {
+                        let inputValue = parseInt($(col).find("input").val())
+                        total += parseFloat(inputValue) * price;
+                        $("#total").val(total);
+                        changes.push((inputValue));
+                        $("#rest").val(JSON.stringify(changes));
+                        break;
+                      }
+                      
+                    }
+                  }
+                  // var x = document.getElementById("productsTable").rows[0].cells[0].getElementsByTagName('input')[0].value;
+                  $(this).find("td input:text,td select").each(function() {
+                    
+                    
+                  });
+                });
+              });
+            </script>
+          <div class="input-group">
+            <br />
+            <button type="submit" class="btn btn-primary pull-right">Guardar</button>
+          </div>
+        </form>
+        <br>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
