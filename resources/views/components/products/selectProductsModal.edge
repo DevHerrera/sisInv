@@ -35,6 +35,7 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Existencia</th>
+                  <th>Fecha de compra</th>
                   @if(isSale)
                     <th>Precio de venta </th>
                   @else
@@ -59,16 +60,16 @@
                   var table = document.getElementById("productsTable");
                   for (var i = 1, row; row = table.rows[i]; i ++) {
                     for (var j = 0, col; col = row.cells[j]; j ++) {
-                      if( j == 3 ) {
+                      if( j == 4 ) {
                         rest = 0;
                         rest = parseFloat($(col).text());
                       }
-                      if ( j == 4 ) {
+                      if ( j == 5 ) {
                         var price = 0.00;
                         price += parseFloat($(col).text());
                       }
                       
-                      if ( j == 5 ) {
+                      if ( j == 6 ) {
                         let inputValue = parseInt($(col).find("input").val())
                         total += parseFloat(inputValue) * price;
                         $("#total").val(total);
