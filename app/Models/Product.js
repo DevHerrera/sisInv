@@ -14,6 +14,10 @@ class Product extends Model {
     }
     return rules
   }
+
+  inventario () {
+    this.belongsTo('App/Models/Inventory')
+  }
 }
 
 module.exports = Product

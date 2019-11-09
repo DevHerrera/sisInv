@@ -1,6 +1,6 @@
 <tr>
-        <th scope="row">{{ sale.id }}</th>
-        <td>devherrera</td>
+        <td> {{ sale.id }}</td>
+        <td>{{auth.user.username}}</td>
         <td>{{ sale.name }} {{ sale.lastname }}</td>
         <td>{{ sale.total }}</td>
         <td>{{ sale.created_at }}</td>
@@ -15,6 +15,5 @@
                 </div>
             </div>
         </td>
-        
     </tr>
     

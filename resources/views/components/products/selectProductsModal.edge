@@ -71,10 +71,12 @@
                       
                       if ( j == 6 ) {
                         let inputValue = parseInt($(col).find("input").val())
-                        total += parseFloat(inputValue) * price;
-                        $("#total").val(total);
-                        changes.push((inputValue));
-                        $("#rest").val(JSON.stringify(changes));
+                        if(inputValue != 0 ) {
+                          total += parseFloat(inputValue) * price;
+                          $("#total").val(total);
+                          changes.push((inputValue));
+                          $("#rest").val(JSON.stringify(changes));
+                        }
                         break;
                       }
                       

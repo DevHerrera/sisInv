@@ -18,6 +18,7 @@ const Route = use('Route')
 
 Route.get('/', 'SessionController.create').middleware('guest')
 Route.post('/', 'SessionController.store').middleware('guest')
+Route.post('/register', 'SessionController.register').middleware('guest')
 
 Route.get('/sales', 'SaleController.home').middleware('auth').as('sales')
 Route.get('/sales/create', 'SaleController.create').middleware('auth')

@@ -31,6 +31,16 @@ class User extends Model {
    *
    * @return {Object}
    */
+
+  static getValidationRules () {
+    const rules = {
+      username: 'required',
+      email: 'required|email',
+      password: 'required'
+    }
+    return rules
+  }
+
   tokens () {
     return this.hasMany('App/Models/Token')
   }
